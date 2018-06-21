@@ -5,7 +5,7 @@ require "json"
 def save_and_exit
 	if $progress_file && $progress
 		File.open($progress_file, "w") { |pf| pf.write($progress.to_s + "\n") }
-		puts "\nWe'll save your progress for next time!"
+		puts " We'll save your progress for next time!"
 	end
 	exit
 end
@@ -31,12 +31,12 @@ end
 
 def flush_and_get
 	$stdout.flush
-	input = $stdin.gets.chomp
-	input == 'exit' ? save_and_exit() : input
+	input = $stdin.gets
+	input.nil? || input.chomp! == 'exit' ? save_and_exit() : input
 end
 
 valid_lab_start = 1
-valid_lab_end = 1
+valid_lab_end = 2
 
 if ARGV.length != 1
 	puts 'You must provide a single argument for the number of the lab you want to run.'
