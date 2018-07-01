@@ -17,7 +17,14 @@ def new_roman_numeral answer
       break
     end
   end
-  puts result
+  k = 0
+  collector = ""
+  while k <= result.length
+    collector = collector + result[k].to_s
+    k = k+1
+  end
+  puts collector
+  $stdout.flush
 end
 
 
