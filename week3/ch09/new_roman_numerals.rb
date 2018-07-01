@@ -1,24 +1,23 @@
-def new_roman_numeral number
+def new_roman_numeral answer
   i = 0
+  j = 0
   result = []
   numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
   roman = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
   while true
-    if number >= 1
-      if number >= numbers[i]
-        result[i] = roman[i]
-        number = number - numbers[i]
+    if answer >= 1
+      if answer >= numbers[i]
+        result[j] = roman[i]
+        answer = answer - numbers[i]
+        j=j+1
+      elsif answer < numbers[i]
         i = i+1
       end
-      if number < numbers[i]
-        i = i+1
-      end
-    end
-    if number < 1
+    elsif answer < 1
       break
     end
-    puts result
   end
+  puts result
 end
 
 
